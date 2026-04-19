@@ -1,193 +1,277 @@
 <!DOCTYPE html>
-<html lang="zh-HK">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Third Dictation 第三次英默</title>
+    <title>第三次英默練習網頁</title>
     <style>
-        /* 字體：英文 Arial, 中文 標楷體 */
         body {
-            font-family: Arial, "標楷體", "BiauKai", "DFKai-SB", serif;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
+            line-height: 1.8;
+            padding: 40px;
             background-color: #f9f9f9;
             color: #333;
+            /* 設定中文字體為標楷體，英文字體為 Arial */
+            font-family: "Arial", "標楷體", "DFKai-SB", serif;
         }
-        h1 {
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
             text-align: center;
-            font-size: 24px;
-            margin-bottom: 20px;
+            color: #2c3e50;
         }
-        h2 {
-            font-size: 18px;
-            background-color: #e8e8e8;
-            padding: 8px;
-            border-left: 5px solid #333;
+
+        /* 標楷體設定 */
+        .chinese {
+            font-family: "標楷體", "DFKai-SB", serif;
         }
+
+        /* English Word Style - 可點擊 */
+        .eng-word {
+            font-family: "Arial", sans-serif;
+            cursor: pointer;
+            color: #0056b3;
+            border-bottom: 1px dashed #0056b3;
+            padding: 0 2px;
+            transition: background-color 0.3s;
+        }
+
+        .eng-word:hover {
+            background-color: #e7f3ff;
+        }
+
+        /* 螢光筆標示 (Yellow) */
+        .highlight-yellow {
+            background-color: yellow;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        /* 綠色螢光筆 (Green) */
+        .highlight-green {
+            background-color: #90ee90;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        /* 藍色字體 */
+        .text-blue {
+            color: #0000FF;
+            font-weight: bold;
+        }
+
+        /* 表格樣式 */
         table {
             width: 100%;
             border-collapse: collapse;
-            background-color: white;
-            margin-bottom: 30px;
+            margin: 20px 0;
         }
+
         th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
+            border: 1px solid #ddd;
+            padding: 12px;
             text-align: center;
-            vertical-align: middle;
         }
+
         th {
             background-color: #f2f2f2;
+            font-family: "標楷體", "DFKai-SB", serif;
         }
-        /* 螢光筆與文字顏色樣式 */
-        .word-btn {
-            cursor: pointer;
-            display: inline-block;
-            padding: 2px 4px;
+
+        .section {
+            margin-bottom: 40px;
+            border-top: 2px solid #eee;
+            padding-top: 20px;
+        }
+
+        .section-title {
             font-weight: bold;
-            font-size: 1.1em;
-        }
-        .highlight {
-            background-color: #ffff00; /* 黃色螢光筆 */
-        }
-        .red-letter {
-            color: #ff0000; /* 紅色字母 */
-        }
-        .chinese-text {
-            font-family: "標楷體", "BiauKai", "DFKai-SB";
-            color: #444;
-        }
-        .passage-box {
-            background-color: white;
-            padding: 20px;
-            border: 1px solid #ccc;
-            line-height: 2;
             font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #e67e22;
         }
-        .notes-box {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #fff9c4;
-            border: 1px dashed #fbc02d;
+
+        .paragraph {
+            margin-bottom: 20px;
+            text-indent: 2em;
         }
     </style>
 </head>
 <body>
 
-    <h1>Third Dictation 第三次英默</h1>
+<div class="container">
+    <h1>Third Dictation <span class="chinese">第三次英默</span></h1>
 
-    <h2>A部分：不規則動詞表 (滿分10分，每個分詞得1分)</h2>
-    <table>
-        <tr>
-            <th>題號</th><th>動詞(無時態)</th><th>分詞(完成式)</th><th>詞義</th>
-            <th>題號</th><th>動詞(無時態)</th><th>分詞(完成式)</th><th>詞義</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td><span class="word-btn highlight" onclick="speak('break')">br<span class="red-letter">ea</span>k</span></td>
-            <td><span class="word-btn highlight" onclick="speak('broken')">br<span class="red-letter">o</span>k<span class="red-letter">e</span>n</span></td>
-            <td class="chinese-text">摔碎</td>
-            <td>6</td>
-            <td><span class="word-btn highlight" onclick="speak('buy')">b<span class="red-letter">uy</span></span></td>
-            <td><span class="word-btn highlight" onclick="speak('bought')">b<span class="red-letter">ou</span>ght</span></td>
-            <td class="chinese-text">購買</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td><span class="word-btn highlight" onclick="speak('catch')">c<span class="red-letter">a</span>tch</span></td>
-            <td><span class="word-btn highlight" onclick="speak('caught')">c<span class="red-letter">au</span>ght</span></td>
-            <td class="chinese-text">抓住</td>
-            <td>7</td>
-            <td><span class="word-btn highlight" onclick="speak('give')">g<span class="red-letter">i</span>ve</span></td>
-            <td><span class="word-btn highlight" onclick="speak('given')">g<span class="red-letter">i</span>v<span class="red-letter">e</span>n</span></td>
-            <td class="chinese-text">送給</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td><span class="word-btn highlight" onclick="speak('lose')">l<span class="red-letter">o</span>se</span></td>
-            <td><span class="word-btn highlight" onclick="speak('lost')">l<span class="red-letter">o</span>st</span></td>
-            <td class="chinese-text">遺失</td>
-            <td>8</td>
-            <td><span class="word-btn highlight" onclick="speak('drink')">dr<span class="red-letter">i</span>nk</span></td>
-            <td><span class="word-btn highlight" onclick="speak('drunk')">dr<span class="red-letter">u</span>nk</span></td>
-            <td class="chinese-text">飲</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td><span class="word-btn highlight" onclick="speak('draw')">dr<span class="red-letter">aw</span></span></td>
-            <td><span class="word-btn highlight" onclick="speak('drawn')">dr<span class="red-letter">aw</span>n</span></td>
-            <td class="chinese-text">繪畫</td>
-            <td>9</td>
-            <td><span class="word-btn highlight" onclick="speak('know')">kn<span class="red-letter">ow</span></span></td>
-            <td><span class="word-btn highlight" onclick="speak('known')">kn<span class="red-letter">ow</span>n</span></td>
-            <td class="chinese-text">知道</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td><span class="word-btn highlight" onclick="speak('take')">t<span class="red-letter">a</span>ke</span></td>
-            <td><span class="word-btn highlight" onclick="speak('taken')">t<span class="red-letter">a</span>k<span class="red-letter">e</span>n</span></td>
-            <td class="chinese-text">拿取</td>
-            <td>10</td>
-            <td><span class="word-btn highlight" onclick="speak('lend')">l<span class="red-letter">e</span>nd</span></td>
-            <td><span class="word-btn highlight" onclick="speak('lent')">l<span class="red-letter">e</span>nt</span></td>
-            <td class="chinese-text">借給</td>
-        </tr>
-    </table>
-
-    <h2>B部分：詞語 (滿分30分，每個詞語得3分)</h2>
-    <table>
-        <tr>
-            <td>1. <span class="word-btn" onclick="speak('actor')">actor</span><br><span class="chinese-text">演員</span></td>
-            <td>2. <span class="word-btn" onclick="speak('actress')">actress</span><br><span class="chinese-text">女演員</span></td>
-            <td>3. <span class="word-btn" onclick="speak('athlete')">athlete</span><br><span class="chinese-text">運動員</span></td>
-            <td>4. <span class="word-btn" onclick="speak('flight attendant')">flight attendant</span><br><span class="chinese-text">飛機艙服務員</span></td>
-        </tr>
-        <tr>
-            <td>5. <span class="word-btn" onclick="speak('spotted')">spotted</span><br><span class="chinese-text">有班點的</span></td>
-            <td>6. <span class="word-btn" onclick="speak('lawyer')">lawyer</span><br><span class="chinese-text">律師</span></td>
-            <td>7. <span class="word-btn" onclick="speak('lifeguard')">lifeguard</span><br><span class="chinese-text">救生員</span></td>
-            <td>8. <span class="word-btn" onclick="speak('photographer')">photographer</span><br><span class="chinese-text">攝影師</span></td>
-        </tr>
-        <tr>
-            <td>9. <span class="word-btn" onclick="speak('pilot')">pilot</span><br><span class="chinese-text">飛機師</span></td>
-            <td>10. <span class="word-btn" onclick="speak('singer')">singer</span><br><span class="chinese-text">歌手</span></td>
-            <td>11. <span class="word-btn" onclick="speak('diamond')">diamond</span><br><span class="chinese-text">鑽石</span></td>
-            <td>12. <span class="word-btn" onclick="speak('waitress')">waitress</span><br><span class="chinese-text">女侍應</span></td>
-        </tr>
-    </table>
-
-    <h2>C部分：課文 (滿分60分)</h2>
-    <div id="passage" class="passage-box">
-        Do you have a dream job? Dream City is an indoor theme park for kids. You can role-play different jobs and learn useful skills here. You can also earn DC money and spend it in our gift shop. Do you enjoy taking photos? At our studio, you can be a photographer. Pick up some tips on how to use the camera there. It was almost time for the groom Eddy to give the bride Nicole the wedding ring. He asked his brother Henry for the ring. Henry searched in his pockets, but he could not find it.
+    <div class="section">
+        <div class="section-title chinese">A部分：不規則動詞表 (滿分10分)</div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="chinese">動詞 (無時態)</th>
+                    <th class="chinese">分詞 (完成式)</th>
+                    <th class="chinese">詞義</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="eng-word" onclick="playAudio('break')">break</span></td>
+                    <td><span class="eng-word text-blue" onclick="playAudio('broken')">broken</span></td>
+                    <td class="chinese">摔碎</td>
+                </tr>
+                <tr>
+                    <td><span class="eng-word" onclick="playAudio('catch')">catch</span></td>
+                    <td><span class="eng-word text-blue" onclick="playAudio('caught')">caught</span></td>
+                    <td class="chinese">抓住</td>
+                </tr>
+                <tr>
+                    <td><span class="eng-word" onclick="playAudio('lose')">lose</span></td>
+                    <td><span class="eng-word text-blue" onclick="playAudio('lost')">lost</span></td>
+                    <td class="chinese">遺失</td>
+                </tr>
+                <tr>
+                    <td><span class="eng-word" onclick="playAudio('draw')">draw</span></td>
+                    <td><span class="eng-word text-blue" onclick="playAudio('drawn')">drawn</span></td>
+                    <td class="chinese">繪畫</td>
+                </tr>
+                <tr>
+                    <td><span class="eng-word" onclick="playAudio('take')">take</span></td>
+                    <td><span class="eng-word text-blue" onclick="playAudio('taken')">taken</span></td>
+                    <td class="chinese">拿取</td>
+                </tr>
+                <tr>
+                    <td><span class="eng-word" onclick="playAudio('buy')">buy</span></td>
+                    <td><span class="eng-word text-blue" onclick="playAudio('bought')">bought</span></td>
+                    <td class="chinese">購買</td>
+                </tr>
+                <tr>
+                    <td><span class="eng-word" onclick="playAudio('give')">give</span></td>
+                    <td><span class="eng-word text-blue" onclick="playAudio('given')">given</span></td>
+                    <td class="chinese">送給</td>
+                </tr>
+                <tr>
+                    <td><span class="eng-word" onclick="playAudio('drink')">drink</span></td>
+                    <td><span class="eng-word text-blue" onclick="playAudio('drunk')">drunk</span></td>
+                    <td class="chinese">飲</td>
+                </tr>
+                <tr>
+                    <td><span class="eng-word" onclick="playAudio('know')">know</span></td>
+                    <td><span class="eng-word text-blue" onclick="playAudio('known')">known</span></td>
+                    <td class="chinese">知道</td>
+                </tr>
+                <tr>
+                    <td><span class="eng-word" onclick="playAudio('lend')">lend</span></td>
+                    <td><span class="eng-word text-blue" onclick="playAudio('lent')">lent</span></td>
+                    <td class="chinese">借給</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
-    <div class="notes-box">
-        <strong>注意事項：</strong><br>
-        大寫字母(16個)：A、C、D、E、H、I、N、P、Y<br>
-        標點符號(13個)：? - , .<br>
-        加s (6個)：kids, jobs, skills, photos, tips, pockets<br>
-        加ed (2個)：asked, searched
+    <div class="section">
+        <div class="section-title chinese">B部分：詞語 (滿分30分)</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            <div class="chinese">1. <span class="eng-word highlight-yellow" onclick="playAudio('actor')">actor</span> (演員)</div>
+            <div class="chinese">2. <span class="eng-word highlight-yellow" onclick="playAudio('actress')">actress</span> (女演員)</div>
+            <div class="chinese">3. <span class="eng-word highlight-yellow" onclick="playAudio('athlete')">athlete</span> (運動員)</div>
+            <div class="chinese">4. <span class="eng-word highlight-yellow" onclick="playAudio('flight-attendant')">flight attendant</span> (飛機艙服務員)</div>
+            <div class="chinese">5. <span class="eng-word" onclick="playAudio('spotted')">spotted</span> (有斑點的)</div>
+            <div class="chinese">6. <span class="eng-word highlight-yellow" onclick="playAudio('lawyer')">lawyer</span> (律師)</div>
+            <div class="chinese">7. <span class="eng-word highlight-yellow" onclick="playAudio('lifeguard')">lifeguard</span> (救生員)</div>
+            <div class="chinese">8. <span class="eng-word highlight-yellow" onclick="playAudio('photographer')">photographer</span> (攝影師)</div>
+            <div class="chinese">9. <span class="eng-word highlight-yellow" onclick="playAudio('pilot')">pilot</span> (飛機師)</div>
+            <div class="chinese">10. <span class="eng-word highlight-yellow" onclick="playAudio('singer')">singer</span> (歌手)</div>
+            <div class="chinese">11. <span class="eng-word" onclick="playAudio('diamond')">diamond</span> (鑽石)</div>
+            <div class="chinese">12. <span class="eng-word highlight-yellow" onclick="playAudio('waitress')">waitress</span> (女侍應)</div>
+        </div>
     </div>
 
-    <script>
-        function speak(text) {
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel(); // 停止之前的聲音
-                var msg = new SpeechSynthesisUtterance(text);
-                msg.lang = 'en-GB'; // 英式英語
-                msg.rate = 0.8;    // 語速稍慢
-                window.speechSynthesis.speak(msg);
-            }
-        }
+    <div class="section">
+        <div class="section-title chinese">C部分：課文 (滿分60分)</div>
+        <div class="paragraph">
+            <span class="eng-word" onclick="playAudio('Do')">Do</span> 
+            <span class="eng-word" onclick="playAudio('you')">you</span> 
+            <span class="eng-word" onclick="playAudio('have')">have</span> 
+            <span class="eng-word" onclick="playAudio('a')">a</span> 
+            <span class="eng-word highlight-green" onclick="playAudio('dream-job')">dream job</span>? 
+            <span class="eng-word" onclick="playAudio('Dream')">Dream</span> 
+            <span class="eng-word" onclick="playAudio('City')">City</span> 
+            <span class="eng-word" onclick="playAudio('is')">is</span> 
+            <span class="eng-word" onclick="playAudio('an')">an</span> 
+            <span class="eng-word" onclick="playAudio('indoor')">indoor</span> 
+            <span class="eng-word" onclick="playAudio('theme')">theme</span> 
+            <span class="eng-word" onclick="playAudio('park')">park</span> 
+            <span class="eng-word" onclick="playAudio('for')">for</span> 
+            <span class="eng-word" onclick="playAudio('kids')">kids</span>. 
+            <span class="eng-word" onclick="playAudio('You')">You</span> 
+            <span class="eng-word" onclick="playAudio('can')">can</span> 
+            <span class="eng-word highlight-yellow" onclick="playAudio('role-play')">role-play</span> 
+            <span class="eng-word" onclick="playAudio('different')">different</span> 
+            <span class="eng-word" onclick="playAudio('jobs')">jobs</span> 
+            <span class="eng-word" onclick="playAudio('and')">and</span> 
+            <span class="eng-word" onclick="playAudio('learn')">learn</span> 
+            <span class="eng-word" onclick="playAudio('useful')">useful</span> 
+            <span class="eng-word" onclick="playAudio('skills')">skills</span> 
+            <span class="eng-word" onclick="playAudio('here')">here</span>. 
+            <span class="eng-word" onclick="playAudio('You')">You</span> 
+            <span class="eng-word" onclick="playAudio('can')">can</span> 
+            <span class="eng-word" onclick="playAudio('also')">also</span> 
+            <span class="eng-word" onclick="playAudio('earn')">earn</span> 
+            <span class="eng-word" onclick="playAudio('DC')">DC</span> 
+            <span class="eng-word" onclick="playAudio('money')">money</span> 
+            <span class="eng-word" onclick="playAudio('and')">and</span> 
+            <span class="eng-word" onclick="playAudio('spend')">spend</span> 
+            <span class="eng-word" onclick="playAudio('it')">it</span> 
+            <span class="eng-word" onclick="playAudio('in')">in</span> 
+            <span class="eng-word" onclick="playAudio('our')">our</span> 
+            <span class="eng-word" onclick="playAudio('gift')">gift</span> 
+            <span class="eng-word" onclick="playAudio('shop')">shop</span>.
+        </div>
+        <div class="paragraph">
+            <span class="eng-word" onclick="playAudio('Do')">Do</span> 
+            <span class="eng-word" onclick="playAudio('you')">you</span> 
+            <span class="eng-word" onclick="playAudio('enjoy')">enjoy</span> 
+            <span class="eng-word text-blue" onclick="playAudio('taking')">taking</span> 
+            <span class="eng-word" onclick="playAudio('photos')">photos</span>? 
+            <span class="eng-word" onclick="playAudio('At')">At</span> 
+            <span class="eng-word" onclick="playAudio('our')">our</span> 
+            <span class="eng-word" onclick="playAudio('studio')">studio</span>, 
+            <span class="eng-word" onclick="playAudio('you')">you</span> 
+            <span class="eng-word" onclick="playAudio('can')">can</span> 
+            <span class="eng-word" onclick="playAudio('be')">be</span> 
+            <span class="eng-word" onclick="playAudio('a')">a</span> 
+            <span class="eng-word highlight-yellow" onclick="playAudio('photographer')">photographer</span>. 
+            <span class="eng-word" onclick="playAudio('Pick')">Pick</span> 
+            <span class="eng-word" onclick="playAudio('up')">up</span>...
+        </div>
+    </div>
+</div>
 
-        // 自動讓課文單字可點擊
-        window.onload = function() {
-            var passage = document.getElementById('passage');
-            var text = passage.innerText;
-            var newText = text.replace(/([a-zA-Z\-]+)/g, '<span class="word-btn" onclick="speak(\'$1\')">$1</span>');
-            passage.innerHTML = newText;
-        };
-    </script>
+<script>
+    /**
+     * 播放音訊函數
+     * @param {string} fileName - 單字名稱，需與 audio 資料夾中的檔名一致
+     */
+    function playAudio(fileName) {
+        // 去除空格並轉為小寫以符合一般檔名規範
+        const cleanedName = fileName.toLowerCase().replace(/\s+/g, '-');
+        
+        // 假設音訊檔存放在網頁同目錄的 audio 資料夾內
+        const audioPath = `audio/${cleanedName}.mp3`;
+        
+        const audio = new Audio(audioPath);
+        
+        audio.play().catch(error => {
+            console.error("無法播放音訊，請確保音訊檔案存在於 audio 資料夾內且檔名正確。", error);
+            alert(`找不到單字 "${fileName}" 的發音檔案。\n請檢查 audio/${cleanedName}.mp3 是否正確。`);
+        });
+    }
+</script>
+
 </body>
 </html>
