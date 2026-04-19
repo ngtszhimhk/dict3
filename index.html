@@ -1,78 +1,83 @@
 <!DOCTYPE html>
-<html lang="zh-HK">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Third Dictation 第三次英默</title>
     <style>
-        /* 字體設定：優先使用 Arial 顯示英文，中文則自動套用標楷體 */
+        /* 字體設定：中文字標楷體，英文字 Arial */
         body {
             font-family: Arial, "標楷體", "DFKai-SB", "BiauKai", serif;
-            margin: 20px auto;
-            max-width: 900px;
-            line-height: 1.6;
+            line-height: 1.8;
+            padding: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
             color: #333;
         }
 
         h1 {
             text-align: center;
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
+            border-bottom: 2px solid #444;
+            padding-bottom: 15px;
+            color: #000;
         }
 
         h2 {
+            background-color: #e8eef7;
+            padding: 10px 15px;
+            border-left: 5px solid #2980b9;
             margin-top: 30px;
-            color: #0056b3;
-            font-size: 1.2em;
+            font-size: 1.3em;
         }
 
-        /* 點擊發音的字體樣式 */
+        /* 可點擊單字的樣式 */
         .clickable {
-            color: #0066cc;
-            font-weight: bold;
-            cursor: pointer;
+            color: #0056b3;
             text-decoration: underline;
-            transition: color 0.2s;
+            cursor: pointer;
+            transition: color 0.2s, background-color 0.2s;
+            padding: 0 2px;
+            border-radius: 3px;
         }
 
         .clickable:hover {
-            color: #ff0000; /* 滑鼠懸停時變成紅色 */
+            color: #c0392b;
+            background-color: #ffe6e6;
         }
 
-        /* 表格設計 */
+        /* 表格樣式 */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin: 20px 0;
+            background-color: #fff;
         }
 
         th, td {
-            border: 1px solid #999;
-            padding: 10px;
+            border: 1px solid #ccc;
+            padding: 12px;
             text-align: center;
         }
 
         th {
             background-color: #f2f2f2;
+            font-weight: bold;
         }
 
-        /* C部分段落設計 */
+        /* C 部分段落樣式 */
         .section-c p {
-            font-size: 1.1em;
-            text-indent: 2em; /* 首行縮排 */
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 1.15em;
         }
 
-        /* 提示區域 */
-        .hints {
-            background-color: #fff9e6;
-            border: 1px dashed #ccc;
-            padding: 15px;
-            margin-top: 20px;
-        }
-        
-        .hints p {
-            margin: 5px 0;
+        /* 底部提示資訊 */
+        .footer-info {
+            margin-top: 40px;
+            padding: 20px;
+            border: 1px dashed #7f8c8d;
+            background-color: #fff;
         }
     </style>
 </head>
@@ -82,127 +87,142 @@
 
     <h2>A部分：不規則動詞表 (滿分10分，每個分詞得1分)</h2>
     <table>
-        <tr>
-            <th>題號</th><th>動詞(無時態)</th><th>分詞(完成式)</th><th>詞義</th>
-            <th>題號</th><th>動詞(無時態)</th><th>分詞(完成式)</th><th>詞義</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td><span class="clickable" onclick="playAudio('break')">break</span></td>
-            <td><span class="clickable" onclick="playAudio('broken')">broken</span></td>
-            <td>摔碎</td>
-            <td>6</td>
-            <td><span class="clickable" onclick="playAudio('buy')">buy</span></td>
-            <td><span class="clickable" onclick="playAudio('bought')">bought</span></td>
-            <td>購買</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td><span class="clickable" onclick="playAudio('catch')">catch</span></td>
-            <td><span class="clickable" onclick="playAudio('caught')">caught</span></td>
-            <td>抓住</td>
-            <td>7</td>
-            <td><span class="clickable" onclick="playAudio('give')">give</span></td>
-            <td><span class="clickable" onclick="playAudio('given')">given</span></td>
-            <td>送給</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td><span class="clickable" onclick="playAudio('lose')">lose</span></td>
-            <td><span class="clickable" onclick="playAudio('lost')">lost</span></td>
-            <td>遺失</td>
-            <td>8</td>
-            <td><span class="clickable" onclick="playAudio('drink')">drink</span></td>
-            <td><span class="clickable" onclick="playAudio('drunk')">drunk</span></td>
-            <td>飲</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td><span class="clickable" onclick="playAudio('draw')">draw</span></td>
-            <td><span class="clickable" onclick="playAudio('drawn')">drawn</span></td>
-            <td>繪畫</td>
-            <td>9</td>
-            <td><span class="clickable" onclick="playAudio('know')">know</span></td>
-            <td><span class="clickable" onclick="playAudio('known')">known</span></td>
-            <td>知道</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td><span class="clickable" onclick="playAudio('take')">take</span></td>
-            <td><span class="clickable" onclick="playAudio('taken')">taken</span></td>
-            <td>拿取</td>
-            <td>10</td>
-            <td><span class="clickable" onclick="playAudio('lend')">lend</span></td>
-            <td><span class="clickable" onclick="playAudio('lent')">lent</span></td>
-            <td>借給</td>
-        </tr>
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>動詞 (無時態)</th>
+                <th>分詞 (完成式)</th>
+                <th>詞義</th>
+                <th>No.</th>
+                <th>動詞 (無時態)</th>
+                <th>分詞 (完成式)</th>
+                <th>詞義</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><span class="clickable" onclick="playAudio('break')">break</span></td>
+                <td><span class="clickable" onclick="playAudio('broken')">broken</span></td>
+                <td>摔碎</td>
+                <td>6</td>
+                <td><span class="clickable" onclick="playAudio('buy')">buy</span></td>
+                <td><span class="clickable" onclick="playAudio('bought')">bought</span></td>
+                <td>購買</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><span class="clickable" onclick="playAudio('catch')">catch</span></td>
+                <td><span class="clickable" onclick="playAudio('caught')">caught</span></td>
+                <td>抓住</td>
+                <td>7</td>
+                <td><span class="clickable" onclick="playAudio('give')">give</span></td>
+                <td><span class="clickable" onclick="playAudio('given')">given</span></td>
+                <td>送給</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><span class="clickable" onclick="playAudio('lose')">lose</span></td>
+                <td><span class="clickable" onclick="playAudio('lost')">lost</span></td>
+                <td>遺失</td>
+                <td>8</td>
+                <td><span class="clickable" onclick="playAudio('drink')">drink</span></td>
+                <td><span class="clickable" onclick="playAudio('drunk')">drunk</span></td>
+                <td>飲</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><span class="clickable" onclick="playAudio('draw')">draw</span></td>
+                <td><span class="clickable" onclick="playAudio('drawn')">drawn</span></td>
+                <td>繪畫</td>
+                <td>9</td>
+                <td><span class="clickable" onclick="playAudio('know')">know</span></td>
+                <td><span class="clickable" onclick="playAudio('known')">known</span></td>
+                <td>知道</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td><span class="clickable" onclick="playAudio('take')">take</span></td>
+                <td><span class="clickable" onclick="playAudio('taken')">taken</span></td>
+                <td>拿取</td>
+                <td>10</td>
+                <td><span class="clickable" onclick="playAudio('lend')">lend</span></td>
+                <td><span class="clickable" onclick="playAudio('lent')">lent</span></td>
+                <td>借給</td>
+            </tr>
+        </tbody>
     </table>
 
     <h2>B部分：詞語 (滿分30分，每個詞語得3分)</h2>
     <table>
         <tr>
-            <td>1</td>
-            <td><span class="clickable" onclick="playAudio('actor')">actor</span><br>演員</td>
-            <td>2</td>
-            <td><span class="clickable" onclick="playAudio('actress')">actress</span><br>女演員</td>
-            <td>3</td>
-            <td><span class="clickable" onclick="playAudio('athlete')">athlete</span><br>運動員</td>
-            <td>4</td>
-            <td><span class="clickable" onclick="playAudio('flight attendant')">flight attendant</span><br>飛機艙服務員</td>
+            <td>1. <span class="clickable" onclick="playAudio('actor')">actor</span><br>演員</td>
+            <td>2. <span class="clickable" onclick="playAudio('actress')">actress</span><br>女演員</td>
+            <td>3. <span class="clickable" onclick="playAudio('athlete')">athlete</span><br>運動員</td>
+            <td>4. <span class="clickable" onclick="playAudio('flight attendant')">flight attendant</span><br>飛機艙服務員</td>
         </tr>
         <tr>
-            <td>5</td>
-            <td><span class="clickable" onclick="playAudio('spotted')">spotted</span><br>有班點的</td>
-            <td>6</td>
-            <td><span class="clickable" onclick="playAudio('lawyer')">lawyer</span><br>律師</td>
-            <td>7</td>
-            <td><span class="clickable" onclick="playAudio('lifeguard')">lifeguard</span><br>救生員</td>
-            <td>8</td>
-            <td><span class="clickable" onclick="playAudio('photographer')">photographer</span><br>攝影師</td>
+            <td>5. <span class="clickable" onclick="playAudio('spotted')">spotted</span><br>有班點的</td>
+            <td>6. <span class="clickable" onclick="playAudio('lawyer')">lawyer</span><br>律師</td>
+            <td>7. <span class="clickable" onclick="playAudio('lifeguard')">lifeguard</span><br>救生員</td>
+            <td>8. <span class="clickable" onclick="playAudio('photographer')">photographer</span><br>攝影師</td>
         </tr>
         <tr>
-            <td>9</td>
-            <td><span class="clickable" onclick="playAudio('pilot')">pilot</span><br>飛機師</td>
-            <td>10</td>
-            <td><span class="clickable" onclick="playAudio('singer')">singer</span><br>歌手</td>
-            <td>11</td>
-            <td><span class="clickable" onclick="playAudio('diamond')">diamond</span><br>鑽石</td>
-            <td>12</td>
-            <td><span class="clickable" onclick="playAudio('waitress')">waitress</span><br>女侍應</td>
+            <td>9. <span class="clickable" onclick="playAudio('pilot')">pilot</span><br>飛機師</td>
+            <td>10. <span class="clickable" onclick="playAudio('singer')">singer</span><br>歌手</td>
+            <td>11. <span class="clickable" onclick="playAudio('diamond')">diamond</span><br>鑽石</td>
+            <td>12. <span class="clickable" onclick="playAudio('waitress')">waitress</span><br>女侍應</td>
         </tr>
     </table>
 
-    <h2>C部分：課文 (滿分60分，每個錯處扣3分，如果犯了20個錯處就0分)</h2>
+    <h2>C部分：課文 (滿分60分，每個錯處扣3分)</h2>
     <div class="section-c">
-        <p>Do you have a dream job? Dream City is an indoor theme park for kids. You can role-play different jobs and learn useful skills here. You can also earn DC money and spend it in our gift shop.</p>
-        
-        <p>Do you enjoy taking photos? At our studio, you can be a photographer. Pick up some tips on how to use the camera there.</p>
-        
-        <p>It was almost time for the groom Eddy to give the bride Nicole the wedding ring. He asked his brother Henry for the ring. Henry searched in his pockets, but he could not find it.</p>
+        <p>
+            <span class="clickable" onclick="playAudio('Do')">Do</span> <span class="clickable" onclick="playAudio('you')">you</span> <span class="clickable" onclick="playAudio('have')">have</span> <span class="clickable" onclick="playAudio('a')">a</span> <span class="clickable" onclick="playAudio('dream')">dream</span> <span class="clickable" onclick="playAudio('job')">job</span>? 
+            <span class="clickable" onclick="playAudio('Dream')">Dream</span> <span class="clickable" onclick="playAudio('City')">City</span> <span class="clickable" onclick="playAudio('is')">is</span> <span class="clickable" onclick="playAudio('an')">an</span> <span class="clickable" onclick="playAudio('indoor')">indoor</span> <span class="clickable" onclick="playAudio('theme')">theme</span> <span class="clickable" onclick="playAudio('park')">park</span> <span class="clickable" onclick="playAudio('for')">for</span> <span class="clickable" onclick="playAudio('kids')">kids</span>. 
+            <span class="clickable" onclick="playAudio('You')">You</span> <span class="clickable" onclick="playAudio('can')">can</span> <span class="clickable" onclick="playAudio('role-play')">role-play</span> <span class="clickable" onclick="playAudio('different')">different</span> <span class="clickable" onclick="playAudio('jobs')">jobs</span> <span class="clickable" onclick="playAudio('and')">and</span> <span class="clickable" onclick="playAudio('learn')">learn</span> <span class="clickable" onclick="playAudio('useful')">useful</span> <span class="clickable" onclick="playAudio('skills')">skills</span> <span class="clickable" onclick="playAudio('here')">here</span>. 
+            <span class="clickable" onclick="playAudio('You')">You</span> <span class="clickable" onclick="playAudio('can')">can</span> <span class="clickable" onclick="playAudio('also')">also</span> <span class="clickable" onclick="playAudio('earn')">earn</span> <span class="clickable" onclick="playAudio('DC')">DC</span> <span class="clickable" onclick="playAudio('money')">money</span> <span class="clickable" onclick="playAudio('and')">and</span> <span class="clickable" onclick="playAudio('spend')">spend</span> <span class="clickable" onclick="playAudio('it')">it</span> <span class="clickable" onclick="playAudio('in')">in</span> <span class="clickable" onclick="playAudio('our')">our</span> <span class="clickable" onclick="playAudio('gift')">gift</span> <span class="clickable" onclick="playAudio('shop')">shop</span>.
+        </p>
+
+        <p>
+            <span class="clickable" onclick="playAudio('Do')">Do</span> <span class="clickable" onclick="playAudio('you')">you</span> <span class="clickable" onclick="playAudio('enjoy')">enjoy</span> <span class="clickable" onclick="playAudio('taking')">taking</span> <span class="clickable" onclick="playAudio('photos')">photos</span>? 
+            <span class="clickable" onclick="playAudio('At')">At</span> <span class="clickable" onclick="playAudio('our')">our</span> <span class="clickable" onclick="playAudio('studio')">studio</span>, <span class="clickable" onclick="playAudio('you')">you</span> <span class="clickable" onclick="playAudio('can')">can</span> <span class="clickable" onclick="playAudio('be')">be</span> <span class="clickable" onclick="playAudio('a')">a</span> <span class="clickable" onclick="playAudio('photographer')">photographer</span>. 
+            <span class="clickable" onclick="playAudio('Pick')">Pick</span> <span class="clickable" onclick="playAudio('up')">up</span> <span class="clickable" onclick="playAudio('some')">some</span> <span class="clickable" onclick="playAudio('tips')">tips</span> <span class="clickable" onclick="playAudio('on')">on</span> <span class="clickable" onclick="playAudio('how')">how</span> <span class="clickable" onclick="playAudio('to')">to</span> <span class="clickable" onclick="playAudio('use')">use</span> <span class="clickable" onclick="playAudio('the')">the</span> <span class="clickable" onclick="playAudio('camera')">camera</span> <span class="clickable" onclick="playAudio('there')">there</span>.
+        </p>
+
+        <p>
+            <span class="clickable" onclick="playAudio('It')">It</span> <span class="clickable" onclick="playAudio('was')">was</span> <span class="clickable" onclick="playAudio('almost')">almost</span> <span class="clickable" onclick="playAudio('time')">time</span> <span class="clickable" onclick="playAudio('for')">for</span> <span class="clickable" onclick="playAudio('the')">the</span> <span class="clickable" onclick="playAudio('groom')">groom</span> <span class="clickable" onclick="playAudio('Eddy')">Eddy</span> <span class="clickable" onclick="playAudio('to')">to</span> <span class="clickable" onclick="playAudio('give')">give</span> <span class="clickable" onclick="playAudio('the')">the</span> <span class="clickable" onclick="playAudio('bride')">bride</span> <span class="clickable" onclick="playAudio('Nicole')">Nicole</span> <span class="clickable" onclick="playAudio('the')">the</span> <span class="clickable" onclick="playAudio('wedding')">wedding</span> <span class="clickable" onclick="playAudio('ring')">ring</span>. 
+            <span class="clickable" onclick="playAudio('He')">He</span> <span class="clickable" onclick="playAudio('asked')">asked</span> <span class="clickable" onclick="playAudio('his')">his</span> <span class="clickable" onclick="playAudio('brother')">brother</span> <span class="clickable" onclick="playAudio('Henry')">Henry</span> <span class="clickable" onclick="playAudio('for')">for</span> <span class="clickable" onclick="playAudio('the')">the</span> <span class="clickable" onclick="playAudio('ring')">ring</span>. 
+            <span class="clickable" onclick="playAudio('Henry')">Henry</span> <span class="clickable" onclick="playAudio('searched')">searched</span> <span class="clickable" onclick="playAudio('in')">in</span> <span class="clickable" onclick="playAudio('his')">his</span> <span class="clickable" onclick="playAudio('pockets')">pockets</span>, <span class="clickable" onclick="playAudio('but')">but</span> <span class="clickable" onclick="playAudio('he')">he</span> <span class="clickable" onclick="playAudio('could')">could</span> <span class="clickable" onclick="playAudio('not')">not</span> <span class="clickable" onclick="playAudio('find')">find</span> <span class="clickable" onclick="playAudio('it')">it</span>.
+        </p>
     </div>
 
-    <div class="hints">
-        <p><strong>大寫字母(16個)：</strong>A、C、D、E、H、I、N、P、Y</p>
-        <p><strong>標點符號(13個)：</strong>? - , .</p>
-        <p><strong>加 s (6個)：</strong>kids, jobs, skills, photos, tips, pockets &nbsp;&nbsp;&nbsp;&nbsp; <strong>加 ed (2個)：</strong>asked, searched</p>
+    <div class="footer-info">
+        <p><strong>大寫字母 (16個)：</strong>A、C、D、E、H、I、N、P、Y</p>
+        <p><strong>標點符號 (13個)：</strong>? - , .</p>
+        <p><strong>加 s (6個)：</strong>kids, jobs, skills, photos, tips, pockets &nbsp;&nbsp;&nbsp; <strong>加 ed (2個)：</strong>asked, searched</p>
     </div>
 
     <script>
-        // 根據你提供的截圖，組合出 GitHub Raw 的音檔路徑
-        const githubAudioBaseUrl = "https://raw.githubusercontent.com/ngtszhimhk/dict3/main/audio/";
-
+        /**
+         * 播放音檔函數
+         * @param {string} word - 要播放的單字
+         */
         function playAudio(word) {
-            // 處理字串（假設你的檔案名稱是小寫且包含空白，例如 flight attendant.mp3）
-            const fileName = word.toLowerCase() + ".mp3";
-            const audioUrl = githubAudioBaseUrl + encodeURIComponent(fileName);
+            // 將單字轉為小寫，並處理空格（例如 'flight attendant' 變成 'flight%20attendant'）
+            const fileName = word.toLowerCase().trim() + ".mp3";
+            const encodedFileName = encodeURIComponent(fileName);
             
-            // 建立並播放音檔
+            // 你的 GitHub Raw 路徑
+            const audioUrl = `https://raw.githubusercontent.com/ngtszhimhk/dict3/main/audio/${encodedFileName}`;
+            
+            // 建立音頻對象並播放
             const audio = new Audio(audioUrl);
-            audio.play().catch(function(error) {
-                console.error("無法播放音檔:", error);
-                alert("找不到這個生字的發音檔：" + fileName + "\n請確保該檔案已上傳至 GitHub 的 audio 資料夾中。");
+            audio.play().catch(err => {
+                console.error("無法播放音檔，請檢查 GitHub 檔案名稱是否正確 (需為小寫 .mp3):", audioUrl);
             });
         }
     </script>
+
 </body>
 </html>
