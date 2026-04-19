@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Third Dictation 第三次英默</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Microsoft JhengHei';
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+        }
+        th {
+            background-color: #f7f9fa;
+        }
+        .word {
+            color: #d35400;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: underline dotted #d35400;
+            transition: background-color 0.2s;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .word:hover {
+            background-color: #fdebd0;
+        }
+        .chinese {
+            color: #555;
+            font-size: 0.9em;
+        }
+        .passage {
+            font-size: 1.2em;
+            line-height: 2;
+            padding: 15px;
+            background-color: #fdfefe;
+            border: 1px solid #e5e8e8;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .notes {
+            background-color: #fef9e7;
+            padding: 15px;
+            border-left: 5px solid #f1c40f;
+            margin-top: 20px;
+        }
+        .instruction {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Third Dictation 第三次英默</h1>
+    <p class="instruction">💡 提示：請點擊帶有底線的英文字即可聆聽英式發音。</p>
+
+    <h2>A部分：不規則動詞表 (滿分10分，每個分詞得1分)</h2>
+    <table>
+        <tr>
+            <th>題號</th><th>動詞(無時態)</th><th>分詞(完成式)</th><th>詞義</th>
+            <th>題號</th><th>動詞(無時態)</th><th>分詞(完成式)</th><th>詞義</th>
+        </tr>
+        <tr>
+            <td>1</td><td><span class="word" onclick="speak('break')">break</span></td><td><span class="word" onclick="speak('broken')">broken</span></td><td class="chinese">摔碎</td>
+            <td>6</td><td><span class="word" onclick="speak('buy')">buy</span></td><td><span class="word" onclick="speak('bought')">bought</span></td><td class="chinese">購買</td>
+        </tr>
+        <tr>
+            <td>2</td><td><span class="word" onclick="speak('catch')">catch</span></td><td><span class="word" onclick="speak('caught')">caught</span></td><td class="chinese">抓住</td>
+            <td>7</td><td><span class="word" onclick="speak('give')">give</span></td><td><span class="word" onclick="speak('given')">given</span></td><td class="chinese">送給</td>
+        </tr>
+        <tr>
+            <td>3</td><td><span class="word" onclick="speak('lose')">lose</span></td><td><span class="word" onclick="speak('lost')">lost</span></td><td class="chinese">遺失</td>
+            <td>8</td><td><span class="word" onclick="speak('drink')">drink</span></td><td><span class="word" onclick="speak('drunk')">drunk</span></td><td class="chinese">飲</td>
+        </tr>
+        <tr>
+            <td>4</td><td><span class="word" onclick="speak('draw')">draw</span></td><td><span class="word" onclick="speak('drawn')">drawn</span></td><td class="chinese">繪畫</td>
+            <td>9</td><td><span class="word" onclick="speak('know')">know</span></td><td><span class="word" onclick="speak('known')">known</span></td><td class="chinese">知道</td>
+        </tr>
+        <tr>
+            <td>5</td><td><span class="word" onclick="speak('take')">take</span></td><td><span class="word" onclick="speak('taken')">taken</span></td><td class="chinese">拿取</td>
+            <td>10</td><td><span class="word" onclick="speak('lend')">lend</span></td><td><span class="word" onclick="speak('lent')">lent</span></td><td class="chinese">借給</td>
+        </tr>
+    </table>
+
+    <h2>B部分：詞語 (滿分30分，每個詞語得3分)</h2>
+    <table>
+        <tr>
+            <td>1. <span class="word" onclick="speak('actor')">actor</span><br><span class="chinese">演員</span></td>
+            <td>2. <span class="word" onclick="speak('actress')">actress</span><br><span class="chinese">女演員</span></td>
+            <td>3. <span class="word" onclick="speak('athlete')">athlete</span><br><span class="chinese">運動員</span></td>
+            <td>4. <span class="word" onclick="speak('flight attendant')">flight attendant</span><br><span class="chinese">飛機艙服務員</span></td>
+        </tr>
+        <tr>
+            <td>5. <span class="word" onclick="speak('spotted')">spotted</span><br><span class="chinese">有班點的</span></td>
+            <td>6. <span class="word" onclick="speak('lawyer')">lawyer</span><br><span class="chinese">律師</span></td>
+            <td>7. <span class="word" onclick="speak('lifeguard')">lifeguard</span><br><span class="chinese">救生員</span></td>
+            <td>8. <span class="word" onclick="speak('photographer')">photographer</span><br><span class="chinese">攝影師</span></td>
+        </tr>
+        <tr>
+            <td>9. <span class="word" onclick="speak('pilot')">pilot</span><br><span class="chinese">飛機師</span></td>
+            <td>10. <span class="word" onclick="speak('singer')">singer</span><br><span class="chinese">歌手</span></td>
+            <td>11. <span class="word" onclick="speak('diamond')">diamond</span><br><span class="chinese">鑽石</span></td>
+            <td>12. <span class="word" onclick="speak('waitress')">waitress</span><br><span class="chinese">女侍應</span></td>
+        </tr>
+    </table>
+
+    <h2>C部分：課文 (滿分60分，每個錯處扣3分，如果犯了20個錯處就0分)</h2>
+    <div id="passage" class="passage">
+        Do you have a dream job? Dream City is an indoor theme park for kids. You can role-play different jobs and learn useful skills here. You can also earn DC money and spend it in our gift shop. Do you enjoy taking photos? At our studio, you can be a photographer. Pick up some tips on how to use the camera there. It was almost time for the groom Eddy to give the bride Nicole the wedding ring. He asked his brother Henry for the ring. Henry searched in his pockets, but he could not find it.
+    </div>
+
+    <div class="notes">
+        <strong>注意事項：</strong><br>
+        大寫字母(16個)：A、C、D、E、H、I、N、P、Y<br>
+        標點符號(13個)：? - , .<br>
+        加s (6個)：kids, jobs, skills, photos, tips, pockets<br>
+        加ed (2個)：asked, searched
+    </div>
+
+    <script>
+        // 語音合成函數
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                // 停止當前正在播放的語音
+                window.speechSynthesis.cancel();
+                
+                var utterance = new SpeechSynthesisUtterance(text);
+                // 設定為英式發音 (類似劍橋發音)
+                utterance.lang = 'en-GB'; 
+                // 稍微放慢語速，適合學生聆聽 (1.0為正常，0.8稍慢)
+                utterance.rate = 0.85; 
+                
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("抱歉，您的瀏覽器不支援語音合成功能。請嘗試使用最新版的 Chrome 或 Edge 瀏覽器。");
+            }
+        }
+
+        // 自動將 C部分 的每個英文單字加上點擊發音功能
+        window.onload = function() {
+            var passageDiv = document.getElementById('passage');
+            var text = passageDiv.innerHTML;
+            
+            // 使用正則表達式尋找英文單字，並將其包裝在可點擊的 span 中
+            // 包含連字號的單字 (如 role-play) 也會被視為一個整體發音
+            var clickableText = text.replace(/([a-zA-Z\-]+)/g, '<span class="word" onclick="speak(\'$1\')">$1</span>');
+            
+            passageDiv.innerHTML = clickableText;
+        };
+    </script>
+
+</body>
+</html>
